@@ -28,7 +28,7 @@ const mutations = {
 }
 
 const actions = {
-  // user login 111111111111111
+  // user login 1111
   login({ commit }, userInfo) {
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
