@@ -31,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin/vod/teacher")
 @Api(tags = "讲师管理接口")
+@CrossOrigin
 public class TeacherController {
     @Autowired
     private TeacherService teacherService;
@@ -75,11 +76,11 @@ public class TeacherController {
         }
     }
 
-    @GetMapping("findQueryPage/{current}/{limit}")
+    @PostMapping("findQueryPage/{current}/{limit}")
     @ApiOperation("条件分页查询")
     public Result findQueryPage(@PathVariable long current,
                                 @PathVariable  long limit,
-                                TeacherQueryVo teacherQueryVo){
+                                @RequestBody(required = false) TeacherQueryVo teacherQueryVo){
         Page<Teacher> pageParam = new Page<>(current,limit);
         QueryWrapper<Teacher> wrapper = new QueryWrapper<>();
         if (teacherQueryVo == null){
