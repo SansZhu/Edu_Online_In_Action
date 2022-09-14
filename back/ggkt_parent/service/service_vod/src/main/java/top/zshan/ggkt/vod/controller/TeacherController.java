@@ -110,7 +110,7 @@ public class TeacherController {
     }
 
     @ApiOperation("添加讲师操作")
-    @PostMapping("save")
+    @PostMapping("saveTeacher")
     public Result saveTeacher(@RequestBody Teacher teacher){
         boolean save = teacherService.save(teacher);
         if (save){
@@ -141,7 +141,7 @@ public class TeacherController {
     }
 
     @ApiOperation("批量删除讲师")
-    @DeleteMapping("removeBatch/")
+    @DeleteMapping("removeBatch")
     public Result removeBatch(@RequestBody List<Long> ids){
         boolean b = teacherService.removeBatchByIds(ids);
         if (b){

@@ -10,11 +10,43 @@ export default {
             data: searchObj
         })
     }, 
+    //删除讲师
     removeTeacherId(id){
         return request({
             url: `${api_name}/remove/${id}`,
             method: 'delete'
         })
+    },
+    // 添加讲师
+    saveTeacher(teacherObj){
+        return request({
+            url: `${api_name}/saveTeacher`,
+            method: 'post',
+            data: teacherObj
+        })
+    },
+    //获取讲师
+    getTeacherById(id){
+        return request({
+            url: `${api_name}/findById/${id}`,
+            method: 'get',
+        })
+    },
+    //修改讲师
+    updateTeacher(teacherObj){
+        return request({
+            url: `${api_name}/update`,
+            method: 'put',
+            data: teacherObj
+        })
+    },
+    batchDelete(idList){
+        return request({
+            url: `${api_name}/removeBatch`,
+            method: 'delete',
+            data: idList
+        })
     }
+
 }
 
