@@ -48,11 +48,11 @@ public class TeacherController {
     @ApiOperation(value = "获取所有讲师信息")
     public Result findAllTeacher()  {
 
-        try {
-            int a = 10/0;
-        }catch(Exception e) {
-            throw new GgktException(20001,"出现自定义异常");
-        }
+//        try {
+//            int a = 10/0;
+//        }catch(Exception e) {
+//            throw new GgktException(20001,"出现自定义异常");
+//        }
         List<Teacher> list = teacherService.list();
         return Result.ok(list);
     }
