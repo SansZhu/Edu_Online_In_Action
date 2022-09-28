@@ -1,5 +1,6 @@
 package top.zshan.ggkt.vod.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import top.zshan.ggkt.model.vod.Video;
 import top.zshan.ggkt.vod.mapper.VideoMapper;
 import top.zshan.ggkt.vod.service.VideoService;
@@ -17,4 +18,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class VideoServiceImpl extends ServiceImpl<VideoMapper, Video> implements VideoService {
 
+    @Override
+    public void removeVideoByCourseId(Long id) {
+        QueryWrapper<Video> wrapper = new QueryWrapper<>();
+        wrapper.eq("course_id",id);
+        baseMapper.delete(wrapper);
+    }
 }
